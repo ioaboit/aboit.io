@@ -32,8 +32,14 @@ class PostsController extends Controller
     public function index()
     {
         $posts = $this->post->all();
- 
         return View::make('posts.index', compact('posts'));
+        // return $posts;
+    }
+
+    public function apiPosts()
+    {
+        $posts = $this->post->all();
+        return $posts;
     }
  
     /**
@@ -75,6 +81,7 @@ class PostsController extends Controller
         $post = $this->post->findOrFail($id);
  
         return View::make('posts.show', compact('post'));
+        // return Post::find($id);
     }
  
     /**

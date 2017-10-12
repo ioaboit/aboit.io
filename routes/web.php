@@ -22,6 +22,7 @@ Route::post('blog/create', 'BlogsController@createBlog')->name('blog.create');
 
 Route::prefix('api')->group(function () {
     Route::get('get/blogs', 'BlogsController@blogList');
+    Route::get('get/posts', 'PostsController@apiPosts');
 });
 
 Auth::routes();
