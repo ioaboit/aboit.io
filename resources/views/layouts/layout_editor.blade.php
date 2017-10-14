@@ -1,5 +1,8 @@
 <!doctype html>
 <html>
+    <script type="text/javascript">
+    var APP_URL = {!! json_encode(url('/')) !!}
+    </script>
     <head>
         <meta charset="utf-8">
         <title>@yield('title') - Laravel Medium editor demo on Codeforest</title>

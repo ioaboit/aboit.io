@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::get('about', 'PagesController@getAbout');
 Route::get('contact', 'PagesController@getContact');
-Route::get('blog', 'BlogsController@show');
+Route::get('story', 'BlogsController@show');
 Route::get('blog/new', 'BlogsController@newBlog');
 Route::post('blog/create', 'BlogsController@createBlog')->name('blog.create');
 

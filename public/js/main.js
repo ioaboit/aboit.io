@@ -12,7 +12,7 @@ $(function () {
         editor: bodyEditor,
         images: true,
         // imagesUploadScript: "{{ URL::to('upload') }}"
-        imagesUploadScript: "/post/upload"
+        imagesUploadScript: APP_URL+"/post/upload"
     });
     // deactivate editors on show view
     if ($('#hideEditor').length) {
@@ -35,7 +35,7 @@ $('body').on('click', '#form-submit', function(e){
         type: 'POST',
         dataType: 'json',
         // url : "{{ URL::action('PostsController@store') }}",
-        url : "/posts",
+        url : APP_URL+"/posts",
         headers: {
               'X-CSRF-TOKEN': $('input[name="_token"]').attr('value')
         },
@@ -50,7 +50,7 @@ $('body').on('click', '#form-submit', function(e){
                 $('.success').show();
                 setTimeout(function() {
                     // window.location.href = "{{ URL::action('PostsController@index') }}";
-                    window.location.href = "/posts";
+                    window.location.href = APP_URL+"/posts";
                 }, 2000);
             }
         },
@@ -75,7 +75,7 @@ $('body').on('click', '#form-update', function(e){
         type: 'PUT',
         dataType: 'json',
         // url : "{{ URL::action('PostsController@update', array(Request::segment(2))) }}",
-        url : "/posts/"+post_id,
+        url : APP_URL+"/posts/"+post_id,
         headers: {
               'X-CSRF-TOKEN': $('input[name="_token"]').attr('value')
         },
@@ -90,7 +90,7 @@ $('body').on('click', '#form-update', function(e){
                 $('.success').show();
                 setTimeout(function() {
                     // window.location.href = "{{ URL::action('PostsController@index') }}";
-                    window.location.href = "/posts";
+                    window.location.href = APP_URL+"/posts";
                 }, 2000);
             }
         },
