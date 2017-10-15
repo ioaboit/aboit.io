@@ -49,7 +49,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return View::make('posts.create');
+        return View::make('story.new');
     }
  
     /**
@@ -80,7 +80,7 @@ class PostsController extends Controller
     {
         $post = $this->post->findOrFail($id);
  
-        return View::make('posts.show', compact('post'));
+        return View::make('story.view', compact('post'));
         // return Post::find($id);
     }
  

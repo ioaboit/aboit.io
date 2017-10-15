@@ -14,11 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('about', 'PagesController@getAbout');
 Route::get('contact', 'PagesController@getContact');
 Route::get('story', 'BlogsController@show');
 Route::get('blog/new', 'BlogsController@newBlog');
 Route::post('blog/create', 'BlogsController@createBlog')->name('blog.create');
+
+//story
+
 
 Route::prefix('api')->group(function () {
     Route::get('get/blogs', 'BlogsController@blogList');
@@ -32,3 +36,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::any('post/upload', 'PostsController@upload');
 Route::resource('posts', 'PostsController');
+
+Route::get('story/new', 'PostsController@create')->middleware('auth');

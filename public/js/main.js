@@ -50,7 +50,7 @@ $('body').on('click', '#form-submit', function(e){
                 $('.success').show();
                 setTimeout(function() {
                     // window.location.href = "{{ URL::action('PostsController@index') }}";
-                    window.location.href = APP_URL+"/posts";
+                    window.location.href = APP_URL+"/story";
                 }, 2000);
             }
         },
