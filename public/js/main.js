@@ -35,7 +35,7 @@ $('body').on('click', '#form-submit', function(e){
         type: 'POST',
         dataType: 'json',
         // url : "{{ URL::action('PostsController@store') }}",
-        url : APP_URL+"/posts",
+        url : APP_URL+"/story/new",
         headers: {
               'X-CSRF-TOKEN': $('input[name="_token"]').attr('value')
         },
@@ -67,9 +67,10 @@ $('body').on('click', '#form-update', function(e){
     var postTitle = titleEditor.serialize();
     var postContent = bodyEditor.serialize();
     
-    var url = $(location).attr('href').split("/").splice(0, 5).join("/");
+    var url = $(location).attr('href').split("/").splice(0, 6).join("/");
     var segments = url.split( '/' );
-    var post_id = segments[4];
+    var post_id = segments[5];
+    alert(APP_URL+"/posts/"+post_id);
 
     $.ajax({
         type: 'PUT',

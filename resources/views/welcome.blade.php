@@ -12,6 +12,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -52,7 +53,9 @@
 
             .title > .logo {
                 font-size: 30px;
-                font-weight: 900;
+                font-weight: bold;
+                font-family: 'Libre Baskerville', serif;
+                color: #4d4d4d;
             }
 
             .logo-caption{
@@ -101,7 +104,7 @@
 
             <div class="content" id="logo-header">
                 <div class="title m-b-t-md">
-                    <span class="logo">ABOIT</span><br>
+                    <span class="logo">Aboit</span><br>
                     <span class="logo-caption">Knowledge from words</span>
                 </div>
 

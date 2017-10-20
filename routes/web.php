@@ -26,7 +26,7 @@ Route::post('blog/create', 'BlogsController@createBlog')->name('blog.create');
 
 Route::prefix('api')->group(function () {
     Route::get('get/blogs', 'BlogsController@blogList');
-    Route::get('get/posts', 'PostsController@apiPosts');
+    Route::get('get/storys', 'PostsController@apiPosts');
 });
 
 Auth::routes();
@@ -37,4 +37,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::any('post/upload', 'PostsController@upload');
 Route::resource('posts', 'PostsController');
 
-Route::get('story/new', 'PostsController@create')->middleware('auth');
+Route::group(['middleware' => ['auth']], function () {
+    //
+	Route::get('story/new', 'PostsController@create');
+	Route::post('story/new', 'PostsController@store');
+});
+Route::get('story/id/{id}', 'PostsController@show');
+Route::get('story/{id}', 'PostsController@showWithUrlId');

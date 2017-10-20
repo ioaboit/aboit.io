@@ -8,7 +8,7 @@ app.config(function($interpolateProvider) {
 app.controller('blogController', function($scope, $http) {
 
     // $http.get("/api/get/blogs")
-    $http.get("api/get/posts")
+    $http.get("api/get/storys")
     .then(function(response) {
         $scope.blogs = response.data;
         console.log($scope.blogs);

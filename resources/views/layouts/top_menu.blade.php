@@ -1,9 +1,10 @@
+<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet">
 <div class="container-fluid">
     <div class="row">
         <div class="col remove-padding">
             <div class="logo-header">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
+                    <a class="navbar-brand logo-text" href="{{ url('/') }}">{{ config('app.name', 'Aboit') }}</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -51,3 +52,11 @@
         </div>
     </div>
 </div>
+<style type="text/css">
+    .logo-text{
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'Libre Baskerville', serif;
+        color: #4d4d4d !important;
+    }
+</style>

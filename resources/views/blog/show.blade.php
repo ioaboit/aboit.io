@@ -12,7 +12,8 @@
             <h4 class="card-title" ng-bind-html="blog.title | trust"></h4>
             <!-- <h6 class="card-subtitle mb-2 text-muted" ng-bind-html="blog.title | trust"></h6> -->
             <p class="card-text" ng-bind-html="blog.body | trust"></p>
-            <a href="posts/[[blog.id]]" class="card-link">view</a>
+            <a href="story/id/[[blog.id]]" class="card-link">view</a>
+            <a href="story/[[blog.url_id]]" class="card-link">url</a>
             <!-- <a href="#" class="card-link">Another link</a> -->
           </div>
         </div>

@@ -4,8 +4,8 @@
  
 @section('main')
  
-    <div class="error alert alert-danger"></div>
-    <div class="success alert alert-success"></div>
+    <div class="error alert alert-danger" style="display:none;"></div>
+    <div class="success alert alert-success" style="display:none;"></div>
  
     {{ Form::open(array('method' => 'PATCH', 'route' => array('posts.update', $post->id))) }}
         <div class="title-editable" id="post-title">{!!html_entity_decode($post->title)!!}</div>
@@ -13,5 +13,5 @@
         <input type="hidden" id="post-id" value="{{ $post->id }}">
         {{ Form::submit('Update Post', array('class' => 'btn btn-primary', 'id' => 'form-update')) }}
     {{ Form::close() }}
- 
+ 	
 @stop

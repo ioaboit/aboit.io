@@ -9,6 +9,7 @@ use Input;
 use Validator;
 use Response;
 use Redirect;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -38,7 +39,7 @@ class PostsController extends Controller
 
     public function apiPosts()
     {
-        $posts = $this->post->all();
+        $posts = $this->post::with(['user'])->get();
         return $posts;
     }
  
@@ -60,6 +61,21 @@ class PostsController extends Controller
     public function store()
     {
         $input = Input::all();
+        $input['user_id']= Auth::User()->id;
+
+        $your_string= $input['title'];
+        $your_string = str_replace(' ', '-', $your_string);
+        $your_string = strip_tags($your_string);
+
+        $title_hash = hash('crc32b', $your_string);
+        $time_hash = hash('crc32b', time());
+        $url_id_hash = strtoupper($title_hash.$time_hash);
+        $input['unique_id'] = $url_id_hash;
+        $input['url_id'] = $your_string."-".$url_id_hash;
+
+        // var_dump($input);
+        // exit();
+
         $validation = Validator::make($input, Post::$rules);
  
         if ($validation->passes())
@@ -79,9 +95,21 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = $this->post->findOrFail($id);
- 
         return View::make('story.view', compact('post'));
         // return Post::find($id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $url_id
+     * @return Response
+     */
+    public function showWithUrlId($url_id)
+    {
+        $post = $this->post->where('url_id', $url_id)->first();
+        // var_dump($post);
+        return View::make('story.view', compact('post'));
     }
  
     /**
