@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-12">
 			<br>
-			<p><a href="{{ url('story') }}">Return to all posts</a></p>
+			<!-- <p><a href="{{ url('story') }}">Return to all posts</a></p> -->
 			<div class="author_profile">
 				<div class="media">
 				  <img class="rounded-circle" src="{{ asset('public/uploads/1507830427-download.jpg') }}" alt="Generic placeholder image" height="50px">

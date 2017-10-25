@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', 'AboitController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('about', 'PagesController@getAbout');
 Route::get('contact', 'PagesController@getContact');
@@ -41,6 +42,9 @@ Route::group(['middleware' => ['auth']], function () {
     //
 	Route::get('story/new', 'PostsController@create');
 	Route::post('story/new', 'PostsController@store');
+	Route::get('me/stories', 'MeController@getMyStories');
+	Route::get('me/{id}/edit', 'MeController@editMyStory');
+	Route::post('me/{id}/update', 'MeController@updateMyStory');
 });
 Route::get('story/id/{id}', 'PostsController@show');
 Route::get('story/{id}', 'PostsController@showWithUrlId');

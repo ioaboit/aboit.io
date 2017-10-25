@@ -1,5 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet">
-<div class="container-fluid">
+<div class="container-fluid" id="head-container">
     <div class="row">
         <div class="col remove-padding">
             <div class="logo-header">
@@ -11,11 +11,11 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">about <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{url('/story')}}">Story</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
@@ -32,11 +32,12 @@
                                 <a class="nav-link" href="{{url('/story/new')}}">write</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="{{url('/')}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">Dashboard</a>
+                                    <a class="dropdown-item" href="{{url('/me/stories')}}">Stories</a>
                                     <a class="dropdown-item" href="{{ url('/logout') }}">Logout</a>
                                 </div>
                             </li>
@@ -53,10 +54,19 @@
     </div>
 </div>
 <style type="text/css">
-    .logo-text{
-        font-size: 30px;
-        font-weight: bold;
-        font-family: 'Libre Baskerville', serif;
-        color: #4d4d4d !important;
-    }
+.logo-text{
+font-size: 30px;
+font-weight: bold;
+font-family: 'Libre Baskerville', serif;
+color: #4d4d4d !important;
+}
+#head-container{
+box-shadow: 0px 1px 11px #ccc;
+}
+.logo-header{
+/*border-bottom: 1px solid var(--menu-border-color);*/
+}
+.navbar{
+    padding: .5rem 6rem !important;
+}
 </style>

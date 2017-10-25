@@ -69,14 +69,20 @@ $('body').on('click', '#form-update', function(e){
     
     var url = $(location).attr('href').split("/").splice(0, 6).join("/");
     var segments = url.split( '/' );
-    var post_id = segments[5];
-    alert(APP_URL+"/posts/"+post_id);
+    var post_id = segments[4];
+    // alert(APP_URL+"/posts/"+post_id);
+
+
+    var regExp = /([A-Z0-9])\w+/;
+    var matches = regExp.exec($(location).attr('href'));
+    var post_unique_id = (matches[0]);
+    // alert(APP_URL+"/me/"+post_unique_id+'/update');
 
     $.ajax({
-        type: 'PUT',
+        type: 'POST',
         dataType: 'json',
         // url : "{{ URL::action('PostsController@update', array(Request::segment(2))) }}",
-        url : APP_URL+"/posts/"+post_id,
+        url : APP_URL+"/me/"+post_unique_id+'/update',
         headers: {
               'X-CSRF-TOKEN': $('input[name="_token"]').attr('value')
         },

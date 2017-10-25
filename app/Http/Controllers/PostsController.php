@@ -181,6 +181,6 @@ class PostsController extends Controller
         $destination = public_path() . '/uploads/';
         $file->move($destination, $fileName);
  
-        echo url('/uploads/'. $fileName);
+        echo url('/public/uploads/'. $fileName);
     }
 }

@@ -28,6 +28,9 @@
         </div>
       </div>
     </div>
+    
+    @yield('dynamic_content')
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -48,6 +51,9 @@
     }
     .remove-padding{
         padding: 0px !important;
+    }
+    .logo-header{
+        border-bottom: 1px solid var(--menu-border-color);
     }
   </style>
 </html>

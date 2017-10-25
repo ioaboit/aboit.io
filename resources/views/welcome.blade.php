@@ -47,10 +47,12 @@
             }
 
             .content {
-                text-align: center;
-                height: 70px;
+                /*text-align: center;*/
+                /*height: 50px;*/
             }
-
+            .title{
+                padding: 10px 100px;
+            }
             .title > .logo {
                 font-size: 30px;
                 font-weight: bold;
@@ -85,7 +87,9 @@
                 margin-bottom: 10px;
             }
             #logo-header{
-                border-bottom: 1px solid var(--menu-border-color);
+                /*border-bottom: 1px solid var(--menu-border-color);*/
+                /*background-color: #ccc;*/
+                box-shadow: 0px 1px 11px #ccc;
             }
         </style>
     </head>
@@ -103,14 +107,14 @@
             @endif
 
             <div class="content" id="logo-header">
-                <div class="title m-b-t-md">
-                    <span class="logo">Aboit</span><br>
-                    <span class="logo-caption">Knowledge from words</span>
+                <div class="title">
+                    <div class="logo">Aboit</div>
+                    <!-- <span class="logo-caption">Knowledge from words</span> -->
                 </div>
 
-                <div class="links" style="margin-top:20%;font-size:30px;">
-                    <a href="{{ URL::to('story') }}">story</a>
-                </div>
+            </div>
+            <div class="links" style="margin-top:20%;font-size:30px;">
+                <a href="{{ URL::to('story') }}">story</a>
             </div>
         </div>
     </body>
