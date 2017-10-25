@@ -24,7 +24,7 @@ class AboitController extends Controller
      */
     public function index()
     {
-        $stories = Post::all();
+        $stories = Post::orderByRaw('created_at DESC')->get();
         return View::make('aboit_home_with_php', compact('stories'));
     }
 }
