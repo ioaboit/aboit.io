@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('me/stories', 'MeController@getMyStories');
 	Route::get('me/{id}/edit', 'MeController@editMyStory');
 	Route::post('me/{id}/update', 'MeController@updateMyStory');
+
+	Route::post('me/{id}/like', 'MeController@likeStory');
 });
 Route::get('story/id/{id}', 'PostsController@show');
 Route::get('story/{id}', 'PostsController@showWithUrlId');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\StoryActivities;
 use Auth;
 use View;
 use Input;
@@ -13,6 +14,9 @@ use Redirect;
 
 class MeController extends Controller
 {
+	public function __construct(){
+		$this->middleware('auth');
+	}
     public function getMyStories(){
     	$posts = Post::where('user_id', Auth::User()->id)->get();
     	return View::make('me.stories', compact('posts'));
@@ -36,5 +40,22 @@ class MeController extends Controller
         }
     
         return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
+    }
+
+    public function likeStory($id){
+    	$response = [];
+    	$post = Post::where('unique_id', $id)->first();
+    	if($post):
+    		$SC = new StoryActivities();
+    		$SC->story_like=1;
+    		$SC->user_id=Auth::User()->id;
+    		$SC->post_id=$post->id;
+    		$result = $SC->save();
+    		$response['result']=$result;
+    		$response['message']='Liked!';
+    	else:
+    		$response['message']='Invalid story!';
+    	endif;
+    	var_dump($response);
     }
 }

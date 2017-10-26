@@ -67,6 +67,7 @@ box-shadow: 0px 1px 11px #ccc;
 /*border-bottom: 1px solid var(--menu-border-color);*/
 }
 .navbar{
-    padding: .5rem 6rem !important;
+    /*padding: .5rem 6rem !important;*/
+    padding: 0px 100px !important;
 }
 </style>

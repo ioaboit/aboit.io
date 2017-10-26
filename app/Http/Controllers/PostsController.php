@@ -107,8 +107,20 @@ class PostsController extends Controller
      */
     public function showWithUrlId($url_id)
     {
-        $post = $this->post->where('url_id', $url_id)->first();
-        // var_dump($post);
+        $post = $this->post->with(['activity'])->where('url_id', $url_id)->first();
+        $likes = 0;
+        $shares = 0;
+        foreach ($post->activity as $key => $value) {
+            if($value->story_like == 1):
+                $likes = $likes+1;
+            endif;
+            if($value->story_share == 1):
+                $shares = $shares+1;
+            endif;
+        }
+        $post->likes = $likes;
+        $post->shares = $shares;
+        unset($post->activity);
         return View::make('story.view', compact('post'));
     }
  

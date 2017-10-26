@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <script type="text/javascript">
-    var APP_URL = {!! json_encode(url('/')) !!}
+    var APP_URL = {!! json_encode(url('/')) !!};
+    window.user = <?php echo Auth::user(); ?>;
     </script>
   <head>
 
@@ -13,6 +14,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
@@ -24,7 +26,7 @@
     <div class="container">
       <div class="row">
         <div class="col" >
-          @yield('content')
+          @yield('main')
         </div>
       </div>
     </div>
