@@ -53,10 +53,10 @@
 			<div class="author_profile">
 				<div class="media">
 				  <img class="rounded-circle" src="{{ asset('public/uploads/1507830427-download.jpg') }}" alt="Generic placeholder image" height="50px">
-				  <div class="media-body">
-				    <h5 class="mt-0">{{$post->user->name}}</h5>
-				    <small class="text-muted">Writer</small> | 
-				    <small class="text-muted">{{$post->created_at->diffForHumans()}}</small>
+				  <div class="media-body author_profile_body">
+				    <h5 class="mt-0 author_profile_name">{{$post->user->name}}</h5>
+				    <p class="author_profile_p_tag"><small class="text-muted">Writer</small></p>
+				    <p class="author_profile_p_tag"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
 				  </div>
 				</div>
 			</div>
@@ -78,6 +78,20 @@
 <style type="text/css">
 	.story-container img{
 		width: 100%;
+	}
+	.author_profile_body{
+		padding-left:10px;
+	}
+	.author_profile_name{
+	    margin-top: -1px !important;
+		margin-bottom: 3px !important;
+		padding: 0px !important;
+	}
+	.author_profile_p_tag{
+		margin-bottom: 0px !important;
+	    padding: 0px !important;
+	    margin-top: -6px;
+	    font-size: 14px;
 	}
 </style>
 @stop
